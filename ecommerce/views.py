@@ -13,13 +13,17 @@ def contact_page(request):
     context = {
         "title": "Contact"
     }
-    return render(request, "home_page.html", context)
+    if request.method == "POST":
+        print(request.POST)
+        print(request.POST.get('fullname'))
+    return render(request, "contact/view.html", context)
 
 
 def about_page(request):
     context = {
         "title": "About"
     }
+
     return render(request, "home_page.html", context)
 
 
