@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
     <html lang="en">
       <head>
@@ -8,6 +9,7 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+          <link rel="stylesheet" href='{%static "css/main.css" %}'>
         <title>Hello, world!</title>
       </head>
       <body>
@@ -15,6 +17,22 @@
         <h1>{{title}}</h1>
         </div>
 
+    <div class="container">
+    <div class="row">
+    <div class="col">
+        <img src="{%static 'img/beach.png' %}" class="'img-fluid">
+         <p>{{ content }}</p>
+    </div>
+    </div>
+  </div>
+  {% if request.user.is_authenticated %}
+    <div class="row">
+    <div class="col">
+      <h1>Premium Content</h1>
+      <p>{{ premium_content }}</p>
+    </div>
+    </div>
+      {% endif %}
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
